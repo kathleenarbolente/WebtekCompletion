@@ -1,0 +1,87 @@
+<div class="container profile">
+  <div class="row">
+
+    <div class="col-sm-3 well">
+
+      <div class="well text-center">
+        <p>    
+        	<img class="img-circle" src="./images/male.png" height="90" width="90" alt="Avatar"/>
+        </p>
+        <p class="customerName">{{ ho_account.name }}</p>
+      </div>
+
+      <div class="well">
+	        <p class="title text-center">BASIC INFORMATION</p>
+
+	        <p class="phoneNumber">
+	        	<span class="glyphicon glyphicon-earphone"></span><span class="tab"> </span>
+            {{ ho_account.cp_no }}
+	        </p>
+
+	        <p class="email">
+	        	<span class="glyphicon glyphicon-envelope"></span><span class="tab"> </span>
+            {{ ho_account.email }}
+	        </p>
+
+          <p class="address">
+            <span class="fa fa-building"></span><span class="tab"> </span>
+            {{ ho_account.address }}
+          </p>
+
+          <p class="average">
+            <span class="fa fa-star"></span><span class="tab"> </span>
+            {{ average_rating }}
+          </p>
+      </div>
+
+      <div class="well">
+        <p class="title text-center">WRITE YOUR FEEDBACK</p>
+          <form method = "get" action = "/send_feedback">
+           <input class='id' type='hidden' name='hoid' value= {{ho_account.hoid}} >
+            <div class="form-group">
+              <label for="comment">Feedback</label>
+              <textarea class="form-control" rows="5" id="comment" name= "comment"></textarea>
+            </div>  
+              <label for="comment">Rating</label>
+              <input class="form-control" type="number" min="1" max = "5" rows="5" id="rating" name='rating'/>
+              <br>
+            <button type="submit" class="btn btn-success" name = "val"  value = "submitfeedback">Submit</button>
+          </form>
+
+      </div>
+
+    </div> <!--End of col-sm-3-->
+
+    <div class="col-sm-9">
+      <div class="row">
+
+        <div class="col-sm-12">
+          <h1 class="dashboardHeading"> FEEDBACKS </h1>
+          {{#each feedback_ho_list}}
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="well">
+                  <p class="text-center"> 
+                  	<img class="img-circle" src="./images/maleDashboard.png" height="90" width="90" alt="Avatar"/>
+                  </p>
+                  <p class="text-center">{{name}}</p>
+                </div>
+              </div> <!--End of col-sm-3-->
+
+              <div class="col-sm-9">
+                <div class="well">
+                  <p>{{comment}}</p>
+                  <p class="text-right date">{{date}}</p>
+                  <p class="text-right time marginTop">{{time}}</p>
+                  <p class="text-left rating"><span class="fa fa-star tab"></span>Rating {{rating}}</p>
+                </div>
+              </div> <!--End of col-sm-9-->
+            </div> <!--End of Row-->
+            {{/each}}
+        </div> <!--End of col-sm-12-->
+
+      </div> <!--End of Row-->
+    </div><!--End of col-sm-9-->
+
+  </div> <!--End of Row-->
+</div> <!--End of Container-->

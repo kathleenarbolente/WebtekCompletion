@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+
+    <div class="header text-center">
+      <img class="" src="./images/sp_booking.gif" height="45" width="450" alt="Avatar"/>
+    </div>
+
+  </div> <!--End of Row-->
+
+
+  {{#each ho_booking_list}}
+  <div class="col-sm-12">
+    <div class="row">
+
+      <div class="col-sm-2">
+        <div class="well">
+          <p class="text-center">
+            <img class="img-circle" src="./images/maleDashboard.png" height="90" width="90" alt="Avatar"/>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-10">
+        <div class="well">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="head" scope="row">Name</th>
+                <td>{{name}} </td>
+              </tr>
+              <tr>
+                <th class="head" scope="row">Address</th>
+                <td>{{address}} </td>
+              </tr>
+              <tr>
+                <th class="head" scope="row">Email</th>
+                <td>{{email}}</td>
+              </tr>
+              <tr>
+                <th class="head" scrop="row">Phone Number</th>
+                <td>{{cp_no}}</td>
+              </tr>
+              <tr>
+                <th class="head" scrop="row">Date and Time Requested</th>
+                <td>{{startdate}} ( {{starttime}} )</td>
+              </tr>
+              <tr>
+                <th class="head" scrop="row">Service to be Rendered</th>
+                <td> {{servtype}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-success btn-md" type="button" data-toggle="modal" data-target="#acceptBooking">DONE</button>
+
+
+          <form class="col-sm-2" method = "get" action = "/success_booking">
+          <div class="modal fade" id="acceptBooking" role="dialog">
+           <input class='bookid' type='hidden' name='bookid' value= {{bookid}}>
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <button class="close" type="button" data-dismiss="modal">×</button>
+                  <h4 class="modal-title">Finish the Service?</h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="addService">Time Finished</label>
+                    <input class="form-control" id="timeFinished" name='timeFinished' type="time"  />
+
+                    <br>
+
+                    <label for="addService">Date Finished</label>
+                    <input class="form-control" id="dateFinished" name='dateFinished' type="date" min={{startdate}} />
+
+                    <br>
+
+                    <label for="addService">Labor and Materials</label>
+                    <input class="form-control" id="payment" name='payment' type="text"/>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button id="accept" class="btn btn-success" type="submit" data-toggle="modal" name="val" value = "accept">Done</button>
+                  <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            <p><span class="label label-info"></span></p>
+          </div>
+        </form>
+        </div>
+
+        </div>
+      </div> <!--End of col-sm-8-->
+    </div>
+
+    {{/each}}
+
+  </div><!--End of Row-->
+</div> <!--End of Container-->

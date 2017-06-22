@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+
+    <div class="header text-center">
+      <img class="" src="./images/sp_requests.gif" height="45" width="630" alt="Avatar"/>
+    </div>
+
+  </div> <!--End of Row-->
+
+{{#each ho_request_list}}
+  <div class="col-sm-12" id="myModal">
+    <div class="row">
+
+      <div class="col-sm-2">
+        <div class="well">
+          <p class="text-center">
+            <img class="img-circle" src="./images/maleDashboard.png" height="90" width="90" alt="Avatar"/>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-8">
+        <div class="well">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="head" scope="row">Name</th>
+                <td>{{name}}</td>
+              </tr>
+              <tr>
+                <th class="head" scope="row">Address</th>
+                <td>{{address}}</td>
+              </tr>
+              <tr>
+                <th class="head" scope="row">Email</th>
+                <td>{{email}}</td>
+              </tr> 
+              <tr>
+                <th class="head" scrop="row">Phone Number</th>
+                <td>{{cp_no}}</td>
+              </tr>
+              <tr>
+                <th class="head" scrop="row">Date and Time Requested</th>
+                <td>{{startdate}} ( {{starttime}} )</td>
+              </tr>
+              <tr>
+                <th class="head" scrop="row">Service to be Rendered</th>
+                <td>{{servtype}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> <!--End of col-sm-8-->
+
+      <form class="col-sm-2" method = "get" action = "/success_request">
+        <input class='id' type='hidden' name='id' value= {{reqid}} >
+        <button id="accept" class="btn btn-success btn-md btn-block" type="submit" data-toggle="modal" name="val" value = "accept">ACCEPT</button>
+      </form>
+
+      <span>&nbsp; </span>
+      
+      <form class="col-sm-2" method = "get" action = "/declined_request">
+       <input class='id' type='hidden' name='id' value= {{reqid}} >
+        <button id="decline" class="btn btn-danger btn-md btn-block" type="submit" data-toggle="modal" name="val" value="decline">DECLINE</button>
+      </form>
+    </div>
+  </div><!--End of Row-->
+{{/each}}
+</div> <!--End of Container-->

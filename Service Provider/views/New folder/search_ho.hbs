@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+
+   <div class="header text-center">
+      <img class="img-circle" src="./images/user_search.png" height="150" width="150" alt="Avatar"/>
+      <h1 class="searchHeading">YOU ARE LOOKING FOR: </h1>
+        <p class="searchItem">{{search}}</p>  
+    </div>
+
+
+    {{#each hoList_search}}
+    <form method = "get" action = "/profileCustomer">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well text-center">
+          <p>    
+            <img class="img-circle" src="./images/male.png" height="90" width="90" alt="Avatar"/>
+          </p>
+          <p>{{name}}</p>
+        </div>
+      </div> <!--end of ol-md-2-->
+
+      <div class="col-md-10">
+        <div class="well">
+          <p class="address"><span class="glyphicon fa fa-building"></span><span class="tab"> </span> {{address}}</p>
+          <p class="phoneNumber"><span class="glyphicon fa fa-phone"></span><span class="tab"> </span>  {{cp_no}}</p>
+          <p class="email"><span class="glyphicon fa fa-envelope"></span><span class="tab"> </span> {{email}}</p>
+          <input class='id' type='hidden' name='id' value= {{hoid}} >
+          <button class="btn btn-info" type="submit" name ="viewaccount" value="true">View Account</button>
+        </div>
+      </div> <!--End of col-md-10-->
+      </div>
+      </form>
+
+      {{/each}}
+
+  </div> <!--End of Row-->
+</div> <!--End of Container-->

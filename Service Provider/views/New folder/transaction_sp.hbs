@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="header text-center">
+      <img class="" src="./images/sp_transactions.gif" height="45" width="355" alt="Avatar"/>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr class="info">
+          <th> <span class="fa fa-user"> </span> 		Customer Name</th>
+          <th> <span class="fa fa-building"></span>		Address</th>
+          <th> <span class="fa fa-building"></span>		Service</th>
+          <th> <span class="fa fa-calendar"></span>		Date Started</th>
+          <th> <span class="fa fa-calendar"></span>		Time Started</th>
+          <th> <span class="fa fa-check"></span>		Dated Ended</th>
+          <th> <span class="fa fa-check"></span>		Time Ended</th>
+          <th> <span class="fa fa-calculator"></span>	Total Service Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each ho_transaction_list}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{address}}</td>
+          <td>{{servtype}}</td>
+          <td>{{startdate}}</td>
+          <td>{{starttime}}</td>
+          <td>{{date_rendered}}</td>
+          <td>{{time_rendered}}</td>
+          <td>₱{{amount}}</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+    <div class="row pull-right well">
+      <h4 class="TotalAmount">Total Amount  </h4>
+      <p class="Amount text-center">₱ {{total_amount}}</p>
+    </div>
+    
+
+  </div>
+</div>

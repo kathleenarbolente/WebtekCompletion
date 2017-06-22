@@ -1,0 +1,160 @@
+<div class="container profile">
+  <div class="row">
+    <div class="col-sm-3 well">
+      <div class="well text-center">
+      <h3 class="welcomeName">Welcome!</h3>
+       <p>{{ sp_account.name }} </p> 
+        <p>
+          <img class="img-circle" src="./images/male.png" height="90" width="90" alt="Avatar"/>
+        </p>
+        <p>
+        <form method = "get" action = "/logout">
+          <button class="btn btn-danger btn-sm btn-block" type="submit">Logout</button>
+        </form>
+        </p>
+      </div>
+
+      <div class="well text-center">
+        <p class="title">SERVICES OFFERED</p>
+
+          {{#each spList}}
+              <p>{{servtype}} : ₱{{hourly_rate}}</p>
+          {{/each}}
+
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn btn-success btn-block btn-sm" type="button" data-toggle="modal" data-target="#addServiceDiv">Add</button>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-warning btn-block btn-sm" type="button" data-toggle="modal" data-target="#removeServiceDiv">Remove</button>
+            </div>
+          </div>
+        
+          <!--Add a Service-->
+        <div class="modal fade" id="addServiceDiv" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <form class="modal-content" method = "get" action = "/success_addservice">
+
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Add a Service</h4>
+              </div>
+
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label for="addService">What Service will you add?</label>
+                  <input class="form-control" id="addService" type="text" class='servtype' name='servtype'/>
+                  <br>
+                  <label for="addService">Rate</label>
+                  <input class="form-control" id="addService" type="text"  class='rate' name='rate'/>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-success" type="submit" name= "add" value = "true">Add</button>
+                <button class="btn btn-danger" type="button" data-dismiss="modal"  >Close</button>
+              </div>
+            </form>
+          </div>
+          <p><span class="label label-info"></span></p>
+        </div>
+
+        <!--Remove a Service-->
+        <div class="modal fade" id="removeServiceDiv" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <form class="modal-content" method = "get" action = "/remove_service">
+
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Remove a Service</h4>
+              </div>
+
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <table class="table table-responsive table-hover table-sm">
+                    <tbody>
+                    {{#each spList}}
+                      <tr>
+                        <td class="serviceName">{{servtype}}</td>
+                        <td class="serviceRate" name = "hourly_rate"> ₱{{hourly_rate}}</td>
+                        <td>
+                          <button type="submit" name= "remove" value = {{servid}} class="btn btn-warning btn-sm">Remove</button>
+                        </td>
+                      </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
+          <p><span class="label label-info"></span></p>
+        </div>
+
+      </div>
+
+      <div class="well">
+        <p class="title text-center">BASIC INFORMATION</p>
+        <p class="companyName">
+          <span class="glyphicon glyphicon-copyright-mark"></span><span class="tab"> </span> {{ sp_account.company_name }}
+        </p>
+        <p class="phoneNumber">
+          <span class="glyphicon glyphicon-earphone"></span><span class="tab"> </span> {{ sp_account.cp_no }}
+        </p>
+        <p class="email">
+          <span class="glyphicon glyphicon-envelope"></span><span class="tab"> </span> {{ sp_account.email }}
+        </p>
+        <p class="rating">
+          <span class="glyphicon glyphicon-star"></span><span class="tab"></span> {{ average_rating }}
+        </p>
+      </div>
+    </div> <!--End of col-sm-3-->
+
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-12">
+
+        <div class="well">
+          <img class="welcomeGIF" src="./images/welcome2.gif" height="200" width="830" alt="Avatar"/>
+        </div>
+          <h1 class="dashboardHeading"> FEEDBACKS </h1>
+          {{#each feedbackList}}
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="well">
+                  <p class="text-center"> 
+                    <img class="img-circle" src="./images/maleDashboard.png" height="90" width="90" alt="Avatar"/>
+                  </p>
+                  <p class="text-center">{{name}}</p>
+                </div>
+              </div>
+
+              <div class="col-sm-9">
+                <div class="well">
+                  <p>{{comment}}</p>
+                  <p class="text-right date">{{date}}</p>
+                  <p class="text-right time marginTop">{{time}}</p>
+                  <p class="text-left rating"><span class="fa fa-star tab"></span>Rating {{rating}}</p>
+                </div>
+              </div>
+
+            </div>
+
+           
+          {{/each}}
+
+        </div>
+      </div> <!--End of Row of col-sm-3-->
+    </div> <!--End of col-sm-9-->
+
+  </div> <!--End of Row-->
+</div> <!--End of Container-->

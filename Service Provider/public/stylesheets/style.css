@@ -1,0 +1,177 @@
+body {
+  padding-top : 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.logo{
+	margin: 0;
+	height: 50px;
+	margin-top: -12px;
+}
+
+.container.profile{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 0;
+}
+
+.dashboardHeading{
+	color: #10662f;
+}
+
+.titleHome{
+	font-size: 3em;
+	color: #237d93;
+}
+
+.title{
+	color: #004f99;
+	font-size: 1.2em;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+
+.carousel-inner img {
+	width: 100%; /* Set width to 100% */
+	margin: auto;
+	min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+	.carousel-caption {
+	display: none; 
+}
+}
+
+h2.homeWellTitle{
+	color: #297087;
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+
+.well.status{
+	height: 280px;
+}
+
+p.statusNumber{
+	font-size: 4.5em;
+	color: #f44242;
+}
+
+i.iconStatus{
+	background-color:  #297087;
+	color: #ffffff;
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 60px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.aboutUs{
+	font-size: 1.3em;
+}
+
+.header{
+	font-size: 3em;
+	color: #297087;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+a.home{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.hvr-border-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  box-shadow: inset 0 0 0 4px #e1e1e1, 0 0 1px transparent;
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+.hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
+  box-shadow: inset 0 0 0 4px #2098D1, 0 0 1px transparent;
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+
+ul.dropdown-menu{
+	line-height: 20px;
+	font-size: 1em;
+}
+
+.searchVertical{
+	margin-top: 8px;
+}
+
+.TotalAmount{
+	font-size: 1.5em;
+	color: #b71010;
+	text-transform: uppercase;
+}
+.Amount{
+	font-size:1.5em;
+	color: #0f4c9b;
+}
+.tab{
+	padding-right: 10px;
+}
+.welcomeName{
+	color: #d32a10;
+}
+.marginTop{
+	margin-top: -10px;
+	font-size: 0.9em;
+	color: #f4424b;
+}
+.customerName{
+	font-size: 1.5em;
+	color: #f48b41;
+	text-transform: uppercase;
+}
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
+
+
+.searchHeading{
+	font-size: 0.85em;
+	text-transform: uppercase;
+}
+.searchItem{
+	color: #db1334;
+	line-height: 20px;
+	font-size: 0.8em;
+}
+.welcomeGIF{
+	margin: 0;
+}
+.serviceName{
+	color: #1381c1;
+	font-size: 1.2em;
+}
+.serviceRate{
+	color: #c11313;
+	font-size: 1.2em;
+}
